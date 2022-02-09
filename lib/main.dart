@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:svu_placement_test/utils/bindings.dart';
+import 'package:svu_placement_test/views/available_quizes_screen.dart';
 import 'package:svu_placement_test/views/quiz_screen.dart';
-import 'package:svu_placement_test/views/result.dart';
+import 'package:svu_placement_test/views/result_screen.dart';
 import 'package:svu_placement_test/views/welcome_screen.dart';
 
 void main() {
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
             name: WelcomeScreen.routeName, page: () => const WelcomeScreen()),
+        GetPage(
+            name: AvailableQuizesScreen.routeName,
+            page: () => const AvailableQuizesScreen()),
         GetPage(name: QuizScreen.routeName, page: () => const QuizScreen()),
         GetPage(name: ResultScreen.routeName, page: () => const ResultScreen()),
       ],

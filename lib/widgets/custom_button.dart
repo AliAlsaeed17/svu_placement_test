@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:svu_placement_test/constants.dart';
 
 class CustomButton extends StatelessWidget {
-  CustomButton({required this.text, this.width = 140, required this.onPressed});
+  const CustomButton(
+      {required this.text, this.width = 140, required this.onPressed});
 
   final String text;
   final double width;

@@ -36,6 +36,5 @@ class ProgressTimer extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

@@ -1,9 +1,8 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:svu_placement_test/constants.dart';
 import 'package:svu_placement_test/controllers/quiz_controller.dart';
-import 'package:svu_placement_test/views/quiz_screen.dart';
+import 'package:svu_placement_test/views/available_quizes_screen.dart';
 import 'package:svu_placement_test/widgets/custom_button.dart';
 import 'package:svu_placement_test/widgets/custom_dropdownbutton.dart';
 import 'package:svu_placement_test/widgets/custom_textfromfield.dart';
@@ -19,6 +18,8 @@ class WelcomeScreen extends StatefulWidget {
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
   final _fullNameController = TextEditingController();
+  String selectedLevel = "B1";
+  String selectedSkill = "Grammar";
 
   final GlobalKey<FormState> _formkey = GlobalKey();
 
@@ -26,8 +27,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     FocusScope.of(context).unfocus();
     if (!_formkey.currentState!.validate()) return;
     _formkey.currentState!.save();
-    Get.offAndToNamed(QuizScreen.routeName);
-    Get.find<QuizController>().startTimer();
+    Get.offAndToNamed(AvailableQuizesScreen.routeName);
   }
 
   @override
@@ -101,8 +101,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 label: "Level",
                                 hintText: "Please select your level",
                                 options: kLeveles,
-                                onChanged: (String? value) {},
-                                onSaved: (String? value) {},
+                                onChanged: (String? value) {
+                                  selectedLevel = value!;
+                                },
+                                onSaved: (String? value) {
+                                  controller.level = value;
+                                },
                               ),
                               const SizedBox(
                                 height: 25.0,
@@ -111,8 +115,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 label: "Skill",
                                 hintText: "Please select skill",
                                 options: kSkills,
-                                onChanged: (String? value) {},
-                                onSaved: (String? value) {},
+                                onChanged: (String? value) {
+                                  selectedSkill = value!;
+                                },
+                                onSaved: (String? value) {
+                                  controller.skill = value;
+                                },
                               ),
                               const SizedBox(
                                 height: 25.0,

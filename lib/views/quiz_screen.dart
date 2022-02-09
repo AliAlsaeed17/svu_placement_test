@@ -80,10 +80,10 @@ class QuizScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) => QuestionCard(
-                        question: controller.questionsList[index],
+                        question: controller.quiz.questions[index],
                       ),
                       controller: controller.pageController,
-                      itemCount: controller.questionsList.length,
+                      itemCount: controller.quiz.questions.length,
                     ),
                   ),
                   const SizedBox(
@@ -103,6 +103,5 @@ class QuizScreen extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }
