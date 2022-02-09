@@ -39,8 +39,6 @@ class QuizController extends GetxController {
   //timer
   Timer? _timer;
 
-  final maxSec = 15;
-
   final RxInt _sec = 15.obs;
   RxInt get sec => _sec;
 
@@ -131,7 +129,7 @@ class QuizController extends GetxController {
     return Icons.close;
   }
 
-  void resetTimer() => _sec.value = maxSec;
+  void resetTimer() => _sec.value = quiz.durationForQuestion;
 
   void startTimer() {
     resetTimer();
